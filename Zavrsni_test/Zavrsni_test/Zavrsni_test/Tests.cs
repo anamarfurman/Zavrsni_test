@@ -73,15 +73,15 @@ namespace Zavrsni_test
 
             Assert.IsTrue(Login("petar.petrovic", "PeraKojot"));
 
-            IWebElement dropdown = this.MyFindElement(
+            IWebElement input = this.MyFindElement(
                 By.XPath(
                     $"//div//h3[contains(text(), '{PackageName}')]//ancestor::div[contains(@class, 'panel')]//input[@type='number']"
                 )
             );
 
-            dropdown.SendKeys("1");
+            input.SendKeys("1");
 
-            SelectElement select = new SelectElement(dropdown);
+            SelectElement select = new SelectElement(input);
             select.SelectByValue(PackageQuantity);
 
             IWebElement orderButton = this.MyFindElement(
